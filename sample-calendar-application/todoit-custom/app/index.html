@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <title>TodoIt</title>
+  <link rel="stylesheet" href="css/normalize.css"/>
+  <link rel="stylesheet" href="css/foundation.min.css"/>
+  <link rel="stylesheet" href="css/app.css"/>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans|Chela+One|PT+Sans|Rosario' rel='stylesheet' type='text/css'>
+
+
+  <link rel="apple-touch-icon-precomposed" href="/img/app_icon.png"/>
+  <meta name="viewport" content="width=device-width">
+
+  <script src="lib/custom.modernizr.js"></script>
+</head>
+<body ng-controller="FrameController">
+
+  <header>
+    <div class="row">
+      <div id="logo" class="large-4 small-4 columns">
+        <h1><a href='/'>Todo it</a></h1>
+      </div>
+      <div id="time" class="large-4 small-4 columns">
+        <h1>{{ time.today | date: 'fullDate'  }}</h1>
+        <span>{{ user.timezone }}</span>
+      </div>
+      <div id="info" class="large-4 small-4 columns">
+        <ul class="inline-list" ng-show="!user.details">
+          <li class=""><a id="login_or_signup" href="#/login">Login or signup</a></li>
+        </ul>
+        <ul class="inline-list" ng-show="user.details">
+          <li class=""><a>Welcome back {{ user.details.name }}</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="viewContent" ng-view></div>
+
+  <script src="lib/angular.js"></script>
+  <script src="lib/angular-route.js"></script>
+  <script src="lib/angular-mocks.js"></script>
+  <script src="lib/chrono.min.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/directives.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

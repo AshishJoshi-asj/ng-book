@@ -1,0 +1,17 @@
+<table class="calendarTable">
+  <thead>
+    <tr>
+    <td class="monthHeader" colspan="7">{{ monthName }} {{ year }}</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td ng-repeat="d in weekDays">{{ d }}</td>
+    </tr>
+    <tr ng-repeat="arr in month"> 
+      <td ng-repeat="d in arr track by $index" ng-class="{currentDay: d == day}">
+      {{ d | blankIfNegative }}
+      </td>
+    </tr>
+  </tbody>
+</table>

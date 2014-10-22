@@ -1,0 +1,21 @@
+{
+  "name": "todoit",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "~v1.2.0-rc.2",
+    "json3": "~3.2.4",
+    "jquery": "~1.9.1",
+    "bootstrap-sass": "~3.0.0",
+    "es5-shim": "~2.0.8",
+    "angular-resource": "~v1.2.0-rc.2",
+    "angular-cookies": "~v1.2.0-rc.2",
+    "angular-sanitize": "~v1.2.0-rc.2",
+    "angular-route": "~1.2.0-rc.2",
+    "chrono": "*",
+    "foundation": "~4.3.1"
+  },
+  "devDependencies": {
+    "angular-mocks": "~v1.2.0-rc.2",
+    "angular-scenario": "~v1.2.0-rc.2"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "radchat",
+  "version": "0.0.0",
+  "description": "Sample AngularJS app for ng-book.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ari Lerner (ari@fullstack.io)",
+  "license": "BSD",
+  "dependencies": {},
+  "devDependencies": {
+    "karma-script-launcher": "~0.1.0",
+    "karma-firefox-launcher": "~0.1.0",
+    "karma-chrome-launcher": "~0.1.0",
+    "karma-html2js-preprocessor": "~0.1.0",
+    "karma-jasmine": "~0.1.2",
+    "karma-requirejs": "~0.1.0",
+    "karma-phantomjs-launcher": "~0.1.0",
+    "chai": "~1.7.2",
+    "mocha": "~1.12.0",
+    "karma-mocha": "~0.1.0",
+    "karma-safari-launcher": "~0.1.1",
+    "karma": "~0.10.2",
+    "karma-ng-scenario": "~0.1.0"
+  }
+}

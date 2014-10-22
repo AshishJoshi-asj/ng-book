@@ -1,0 +1,83 @@
+<div class="row" id="dashboard">
+
+  <div class="large-9 columns">
+    <form ng-submit='insertEvent()'>
+      <input ng-model="entryInput" 
+              type="text" placeholder="Entry" 
+              ng-minlength='6' 
+              required />
+    </form>
+
+    <div ng-show="events.length == 0" class="row">
+      <div class="large-12 columns">
+        <h2>Loading</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="large-9 small-9 columns">
+        <ul id="taskSorts" class='button-group even-4'>
+          <li><a class='small button' ng-click='sort("all")'>All <div class="notification_bubble"><span>{{ filterNotifications.all }}</span></div></a></li>
+          <li><a class='small button' ng-click='sort("today at 11:59pm")'>Today<div class="notification_bubble"><span>{{ filterNotifications.today }}</span></div></a></li>
+          <li><a class='small button' ng-click='sort("tomorrow at 11:59pm")'>Tomorrow<div class="notification_bubble"><span>{{ filterNotifications.tomorrow }}</span></div></a></li>
+          <li><a class='small button' ng-click='sort("next week")'>This week<div class="notification_bubble"><span>{{ filterNotifications.week }}</span></div></a></li>
+        </ul>
+      </div>
+      <div class="large-3 small-3 columns">
+        <input type="search" ng-model="search" placeholder="Search" />
+      </div>
+    </div>
+
+    <ul id="taskList">
+      <li ng-repeat="event in events | filter:excludeByDate | filter:search | orderBy: 'start.dateTime': false ">
+        <div class="row">
+          <div class='large-1 small-1 columns'>
+            <a ng-click='deleteEvent(event)'>X</a>
+          </div>
+          <div class="large-3 small-3 columns">
+            {{ event.start.dateTime | date:'short' }}
+          </div>
+          <div class="large-7 small-3 columns">
+            <a href="{{ event.htmlLink }}">{{ event.summary }}</a>
+          </div>
+          <div class="large-1 small-1 columns">
+            <a ng-click="markDone(event)"></a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="large-3 hide-for-small columns">
+    <div our-calendar ng-model='newEntry.date'></div>
+    <ul>
+      <li ng-show="newEntry.users">
+        <b>Users</b>
+        <ul>
+          <li ng-repeat="user in newEntry.users">
+            <a href="http://twitter.com/{{user}}">{{ user.twitter ? user.twitter : user }}</a>
+          </li>
+        </ul>
+      </li>
+      <li ng-show="newEntry.tags" id="tagList">
+        <b>Tags</b>
+        <ul>
+          <li ng-repeat="tag in newEntry.tags" class="tag">
+            {{ tag }}
+          </li>
+        </ul>
+      </li>
+      <li ng-show="newEntry.urls">
+        <b>Links</b>
+        <ul>
+          <li ng-repeat="link in newEntry.urls">
+            <a href="{{link}}">{{ link }}</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- Today at 1:30pm with @eigenjoy #work -->

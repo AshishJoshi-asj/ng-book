@@ -1,0 +1,19 @@
+<section class="loginform">
+  <form name="loginform" no-validate ng-submit="login()" accept-charset="utf-8">
+    <ul>
+      <li><label for="usermail">Email</label>
+      <input type="email" ng-model="loggingInUser.email" name="usermail" placeholder="yourname@email.com" required></li>
+      <li><label for="password">Password</label>
+      <input type="password" ng-model="loggingInUser.password" name="password" placeholder="password" required></li>
+      <li><input type="submit" class="button" value="Login"></li>
+      <input type="hidden" name="login_form" ng-model="loggingInUser.login_form" value="true" />
+    </ul>
+    <ul>
+      <li ng-repeat="(name, err) in loggingInUser.errors">
+        <span>{{ name }}</span>: {{ err }}
+      </li>
+    </ul>
+  </form>
+  <hr />
+  <button id="googleAuthButton" class="radius" ng-click="auth_with_google()">Try it! Sign in with google</button>
+</section>
